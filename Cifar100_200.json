@@ -1,0 +1,65 @@
+{
+    "dataset": {
+        "dataset_name": "Cifar100",
+        "data_root":""
+    },
+    "backbone": {
+        "name": "ResNet-32"
+    },
+    "loss": {
+        "type": "CrossEntropy"
+    },
+    "train": {
+        "max_epoch" : 230,
+        "batch_size": 128,
+        "cifar_imb_ratio": 0.005,
+        "init_preference": "cls_pre", 
+        
+        "pareto_start_epoch": 30,
+        "pareto_solver": "cagrad",
+        "bal_ratio": 0.02,
+        "rho": 1.0e-4,
+        "perturb_radius": 0.0, 
+        "up_limit": 1.0,
+
+        "mixup_alpha": 1.0,
+        "div" : 2.0, 
+        "sampler" : "Decoup",
+        "mixup": true, 
+        "stage": 200,
+
+        "optimizer": {
+            "type": "SGD", 
+            "momentum": 0.9,
+            "lr":1e-1,
+            "lr_neck": 1e-1,
+            "lr_hyper": 1e-1,
+            "lr_cls":1e-1,
+            "wc" : 2.0e-4
+        },
+        "lr_scheduler":{
+            "type": "warmup",
+            "lr_step": [160, 180],
+            "lr_factor": 0.1,
+            "warmup_epoch": 5
+        }
+    },
+    "test": {
+        "batch_size": 512,
+        "exp_id": "Places_LT_2022_7_7",
+        "error": 1.0e-2,
+        "lamda": 100
+    },
+    "setting": {
+        "type": "LT Classification Stage 2", 
+        "num_class": 100
+    },
+
+
+    "adver_reg": 1,
+    "seed": 50,
+    "gpu_id": "0,1",
+    "use_gpu": true,
+    "valid_step": 1,
+    "debug" : false
+}
