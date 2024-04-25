@@ -41,7 +41,7 @@ self.transform = transforms.Compose([
 
 ## Citation
 ```
-@inproceedings{zhou2023pareto,
+@inproceedings{zhou2024pareto,
   title={Pareto Deep Long-Tailed Recognition: A Conflict-Averse Solution},
   author={Zhou, Zhipeng and Liu, Liu and Zhao, Peilin and Gong, Wei},
   booktitle={The Twelfth International Conference on Learning Representations},
